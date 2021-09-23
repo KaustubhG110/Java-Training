@@ -14,20 +14,20 @@ public class player {
 		this.name = name;
 	}
 
-	public int getRating() {
+	public int getTestrating() {
 		return testrating;
 	}
 
-	public void setRating(int rating) {
-		this.testrating = rating;
+	public void setTestrating(int testrating) {
+		this.testrating = testrating;
 	}
 
-	public String getrole() {
-			return role;
+	public String getRole() {
+		return role;
 	}
 
-	public void setPosition(String position) {
-		this.role = position;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getCountry() {
@@ -40,7 +40,9 @@ public class player {
 
 	@Override
 	public String toString() {
-		return "Player [name=" + name + ", rating=" + testrating + ", role=" + role + ", country=" + country + "]";
+		return "player [name=" + name + ", testrating=" + testrating + ", role=" + role + ", country=" + country + "]";
 	}
+
+	
 
 }
