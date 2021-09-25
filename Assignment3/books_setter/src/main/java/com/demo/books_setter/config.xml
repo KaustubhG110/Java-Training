@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean name="customer" class="com.demo.books.Customer">
+		<property name="customerId" value="510" />
+		<property name="customerName" value="Kaustubh" />
+	</bean>
+
+	<bean name="publisher1" class="com.demo.books.Publisher">
+		<property name="publisherId" value="361" />
+		<property name="publisherName" value="Transworld" />
+		<property name="publisherLocation" value="London, England" />
+	</bean>
+
+	<bean name="publisher2" class="com.demo.books.Publisher">
+		<property name="publisherId" value="314" />
+		<property name="publisherName" value="Bloomsbury" />
+		<property name="publisherLocation" value="London, England" />
+	</bean>
+
+	<bean name="author1" class="com.demo.books.Author">
+		<property name="authorId" value="415" />
+		<property name="authorName" value="Dan Brown" />
+	</bean>
+
+	<bean name="author2" class="com.demo.books.Author">
+		<property name="authorId" value="410" />
+		<property name="authorName" value="J. K. Rowling" />
+	</bean>
+
+	<bean name="book1" class="com.demo.books.Book">
+		<property name="bookId" value="206" />
+		<property name="bookName" value="The Da Vinci Code" />
+		<property name="publisher">
+			<ref bean="publisher1" />
+		</property>
+		<property name="author">
+			<ref bean="author1" />
+		</property>
+	</bean>
+
+	<bean name="book2" class="com.demo.books.Book">
+		<property name="bookId" value="256" />
+		<property name="bookName"
+			value="Harry Potter and the Deathly Hallows" />
+		<property name="publisher">
+			<ref bean="publisher2" />
+		</property>
+		<property name="author">
+			<ref bean="author2" />
+		</property>
+	</bean>
+
+	<bean name="order" class="com.demo.books.Order">
+
+		<property name="orderId" value="115" />
+		<property name="customer">
+			<ref bean="customer" />
+		</property>
+		<property name="orderItems">
+			<list>
+				<ref bean="book1" />
+				<ref bean="book2" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

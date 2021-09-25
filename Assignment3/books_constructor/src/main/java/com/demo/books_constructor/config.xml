@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean name="customer" class="com.demo.books_constructor.Customer">
+		<constructor-arg value="510" type="int">
+		</constructor-arg>
+		<constructor-arg value="Kaustubh">
+		</constructor-arg>
+	</bean>
+
+	<bean name="publisher1" class="com.demo.books_constructor.Publisher">
+		<constructor-arg value="361" type="int">
+		</constructor-arg>
+		<constructor-arg value="Transworld">
+		</constructor-arg>
+		<constructor-arg value="London, England">
+		</constructor-arg>
+	</bean>
+
+	<bean name="publisher2" class="com.demo.books_constructor.Publisher">
+		<constructor-arg value="314" type="int">
+		</constructor-arg>
+		<constructor-arg value="Bloomsbury">
+		</constructor-arg>
+		<constructor-arg value="London, England">
+		</constructor-arg>
+	</bean>
+
+	<bean name="author1" class="com.demo.books_constructor.Author">
+		<constructor-arg value="415" type="int">
+		</constructor-arg>
+		<constructor-arg value="Dan Brown">
+		</constructor-arg>
+	</bean>
+
+	<bean name="author2" class="com.demo.books_constructor.Author">
+		<constructor-arg value="410" type="int">
+		</constructor-arg>
+		<constructor-arg value="J. K. Rowling">
+		</constructor-arg>
+	</bean>
+
+	<bean name="book1" class="com.demo.books_constructor.Book">
+		<constructor-arg value="206" type="int">
+		</constructor-arg>
+		<constructor-arg value="The Da Vinci Code">
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="publisher1" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="author1" />
+		</constructor-arg>
+	</bean>
+
+	<bean name="book2" class="com.demo.books_constructor.Book">
+		<constructor-arg value="256" type="int">
+		</constructor-arg>
+		<constructor-arg>
+			<value>Harry Potter and the Deathly Hallows</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="publisher2" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="author2" />
+		</constructor-arg>
+	</bean>
+
+	<bean name="order" class="com.demo.books_constructor.Order">
+
+		<constructor-arg value="115" type="int">
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="customer" />
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="book1" />
+				<ref bean="book2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
